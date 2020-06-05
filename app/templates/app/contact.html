@@ -1,0 +1,47 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+	<!----start-contact---->
+	<div class="contact">
+		<div class="container">
+			<div class="contact-top heading">
+				<h3>Контакты</h3>
+			</div>
+			<div class="contact-bottom">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.8010637774205!2d28.333706158244773!3d57.818406308110376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c01ecb43322507%3A0x8cc4b91f55fb4f21!2z0JIuINCYLiDQm9C10L3QuNC9!5e0!3m2!1sru!2sru!4v1590271680663!5m2!1sru!2sru"></iframe>
+ 			<div class="contact-text">
+					<div class="col-md-4 contact-left">
+						<h4>Вопросы и предложения</h4>
+						<p>Если вы обнаружили ошибку или хотите помочь в улучшении, отправьте нам сообщение.</p>
+						<div class="address">
+							<h4>Адрес</h4>
+							<p>GamesLife 
+							<span>Россия, Псков</span>
+							Площадь Ленина, 1</p>
+						</div>
+					</div>	
+					<div class="col-md-8 contact-right">
+						<input placeholder="Имя" type="text" required>
+						<input placeholder="Email" type="text" required>
+						<textarea placeholder="Сообщение" required></textarea>
+							<div class="submit-btn">
+								<form>
+									<input type="submit" value="Отправить">
+								</form>
+							</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!----end-contact---->
+{% endblock %}
+
+{% block scripts %}
+
+    {% load staticfiles %}
+ 
+
+{% endblock %}

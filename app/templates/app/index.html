@@ -1,0 +1,187 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+	<!--banner-starts-->
+	<div class="banner">
+		<div class="container">
+			<div class="banner-top">
+				<div class="banner-text">
+					<h2>eSports</h2>
+					<h1>Окунись в эту атмосферу!</h1>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--banner-end-->
+	<!--about-starts-->
+	<div class="about">
+		<div class="container">
+			<div class="about-main">
+				<div class="col-md-8 about-left">
+					<div class="about-one">
+						<p>Актуальные новости</p>
+						<h3>The International 2020 уже близок!</h3>
+					</div>
+					<div class="about-two">
+						<img src="https://arena.rtp.pt/wp-content/uploads/2019/12/EMGal9AU0AANs-o-860x507.jpg" alt="" />
+						<p>Опубликовано 10 мая 2020 </p>
+						<p>Нет ничего приятнее, чем сразить противника в компании друзей, а затем делать это ещё и ещё. Представляем систему гильдий, которая поможет вам найти сообщество единомышленников и идти к победам с надёжной командой за плечами. Вместе вы сможете поднять уровень гильдии и получить награды для каждого её члена.</p>
+						<p>Покажите своё мастерство, стабильно побеждая в новом боевом состязании — ещё более соревновательном способе игры в Доту. Чтобы принять вызов, просто активируйте входной билет (вы получите несколько штук, а больше можно купить в боковой лавке) и начинайте особый поиск игры в одиночку или с друзьями в назначенное для вашего региона ежедневное время.</p>
+						<ul>
+							<li><p>Поделитесь : </p></li>
+							<li><a href="#"><span class="fb"> </span></a></li>
+							<li><a href="#"><span class="twit"> </span></a></li>
+							<li><a href="#"><span class="pin"> </span></a></li>
+							<li><a href="#"><span class="rss"> </span></a></li>
+							<li><a href="#"><span class="drbl"> </span></a></li>
+						</ul>
+					</div>	
+					<div class="about-tre">
+                        {% for post in last_pages %}
+						<div class="a-1">
+							<div class="col-md-6 abt-left">
+                                {% if post.image and post.image.url != '/media/temp.jpg'  %}
+								<a href="{% url 'blogpost' parametr=post.id %}"><img src="{{ post.image.url }}" alt="" /></a>
+                                {% endif %}
+								<h6>От {{post.author}}</h6>
+								<h3><a href="{% url 'blogpost' parametr=post.id %}">{{post.title}}</a></h3>
+								<p>{{post.description}}</p>
+								<label>{{post.posted}}</label>
+							</div>
+						</div>
+                        {% endfor %}
+
+
+
+					</div>	
+				</div>
+				<div class="col-md-4 about-right heading">
+					<div class="abt-1">
+						<h3>О нас</h3>
+						<div class="abt-one">
+							<img src="images/c-2.jpg" alt="" />
+							<p>Это популярный новостной ресур с самыми актуальными новостями!</p>
+							<div class="a-btn">
+								<a href="{% url 'about' %}">Read More</a>
+							</div>
+						</div>
+					</div>
+					<div class="abt-2">
+						<h3>Категории</h3>
+						<ul>
+							<li><a href="single.html"> League of legends </a></li>
+							<li><a href="single.html"> Dota 2 </a></li>
+							<li><a href="single.html"> Counter Strike: Global offensive </a> </li>
+							<li><a href="single.html"> PUBG </a> </li>
+							<li><a href="single.html"> Другое </a> </li>							
+						</ul>	
+					</div>
+					<div class="abt-2">
+						<h3>Новостная рассылка</h3>
+						<div class="news">
+							<form>
+								<input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" />
+								<input type="submit" value="Подписаться">
+							</form>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="clearfix"></div>			
+			</div>		
+		</div>
+	</div>
+	<!--about-end-->
+	<!--slide-starts-->
+	<div class="slide">
+		<div class="container">
+			<div class="fle-xsel">
+			<ul id="flexiselDemo3">
+				<li>
+					<a href="#">
+						<div class="banner-1">
+							<img src="https://cdn.sm-news.ru/wp-content/uploads/2020/06/03/1200px-lil-1200x675.jpg" class="img-responsive" alt="">
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<div class="banner-1">
+							<img src="https://www.wallpapers13.com/wp-content/uploads/2017/06/Dota-2-character-Queen-Of-Pain-Wraith-King-Pudge-Meepo-Fantasy-Art-Wallpaper-HD-2560x1440-915x515.jpg" class="img-responsive" alt="">
+						</div>
+					</a>
+				</li>			
+				<li>
+					<a href="#">
+						<div class="banner-1">
+							<img src="https://avatars.mds.yandex.net/get-pdb/1651533/8f01c24c-5019-4017-bbec-6df615e5792e/s1200?webp=false" class="img-responsive" alt="">
+						</div>
+					</a>
+				</li>		
+				<li>
+					<a href="#">
+						<div class="banner-1">
+							<img src="https://wallpaperscave.ru/images/original/18/06-06/games-pubg-playerunknowns-battlegrounds-54922.jpg" class="img-responsive" alt="">
+						</div>
+					</a>
+				</li>	
+				<li>
+					<a href="#">
+						<div class="banner-1">
+							<img src="https://avatars.mds.yandex.net/get-pdb/1520301/0967a05a-60eb-4031-ba71-b4cc70c1342d/s1200?webp=false" class="img-responsive" alt="">
+						</div>
+					</a>
+				</li>	
+				<li>
+					<a href="#">
+						<div class="banner-1">
+							<img src="https://wallpapers-all.com/uploads/posts/2018-02/1_the_witcher_3_wild_hunt_geralt_and_a_griffin.jpg" class="img-responsive" alt="">
+						</div>
+					</a>
+				</li>				
+			</ul>
+							
+							 <script type="text/javascript">
+								$(window).load(function() {
+									
+									$("#flexiselDemo3").flexisel({
+										visibleItems: 5,
+										animationSpeed: 1000,
+										autoPlay: true,
+										autoPlaySpeed: 3000,    		
+										pauseOnHover: true,
+										enableResponsiveBreakpoints: true,
+										responsiveBreakpoints: { 
+											portrait: { 
+												changePoint:480,
+												visibleItems: 2
+											}, 
+											landscape: { 
+												changePoint:640,
+												visibleItems: 3
+											},
+											tablet: { 
+												changePoint:768,
+												visibleItems: 3
+											}
+										}
+									});
+									
+								});
+								</script>
+					<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>	
+	<!--slide-end-->
+
+{% endblock %}
+{% block scripts %}
+    {% load staticfiles %}
+<script type="text/javascript" src="{% static 'app/scripts/nivo-lightbox.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'app/scripts/responsiveslides.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'app/scripts/jquery.flexisel.js' %}"></script>
+{% endblock %}

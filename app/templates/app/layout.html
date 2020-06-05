@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} </title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.css' %}" />
+
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'app/scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'app/scripts/modernizr.custom.53451.js' %}"></script>
+    <script src="{% static 'app/scripts/modernizr.custom.js' %}"></script>
+    <script src="{% static 'app/scripts/easing.js' %}"></script>
+    <script src="{% static 'app/scripts/move-top.js' %}"></script>
+    <script src="{% static 'app/scripts/jquery-1.10.2.min.js' %}"></script>
+    <!--theme-style-->
+    <link href="{% static 'app/content/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'app/content/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'app/content/magnific-popup.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+     <!--new js-->
+    <script type="text/javascript" src="{% static 'app/scripts/jquery.mixitup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app/scripts/jquery.wmuSlider.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'app/scripts/magnific-popup.js' %}"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+    		 <!--start-smoth-scrolling-->
+    		<!--start-top-nav-script-->
+		<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('nav ul');
+					menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 320 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	    		});
+			});
+		</script>
+		<!--//End-top-nav-script-->
+
+
+</head>
+
+<body>
+
+	<!--header-top-starts-->
+	<div class="header-top">
+		<div class="container">
+			<div class="head-main">
+				<a href="{% url 'home' %}"><img src="{% static 'app/images/logo13.jpg' %}" alt="" /></a>
+			</div>
+		</div>
+	</div>
+	<!--header-top-end-->
+	<!--start-header-->
+	<div class="header">
+		<div class="container">
+			<div class="head">
+			<div class="navigation">
+				 <span class="menu"></span> 
+					<ul class="navig">
+						<li><a href="{% url 'home' %}"  class="active">Домой</a></li>
+						<li><a href="{% url 'about' %}">О нас</a></li>
+						<li><a href="{% url 'page' %}">Блог</a></li>
+						<li><a href="{% url 'contact' %}">Контакты</a></li>                        
+                        {% if not user.is_authenticated %}
+                        <li><a href="{% url 'registration' %}">Регистрация</a></li>
+                        {% endif %}
+                        <li>
+                        {% include 'app/loginpartial.html' %}
+                            </li>
+					</ul>
+			</div>
+			<div class="header-right">
+				<div class="search-bar">
+					<input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+					<input type="submit" value="">
+				</div>
+				<ul>
+					<li><a href="#"><span class="fb"> </span></a></li>
+					<li><a href="#"><span class="twit"> </span></a></li>
+					<li><a href="#"><span class="pin"> </span></a></li>
+					<li><a href="#"><span class="rss"> </span></a></li>
+					<li><a href="#"><span class="drbl"> </span></a></li>
+				</ul>
+			</div>
+				<div class="clearfix"></div>
+			</div>
+			</div>
+		</div>	
+	<!-- script-for-menu -->
+	<!-- script-for-menu -->
+		<script>
+			$("span.menu").click(function(){
+				$(" ul.navig").slideToggle("slow" , function(){
+				});
+			});
+		</script>
+	<!-- script-for-menu -->
+
+{% block content %}{% endblock %}
+ 	<!--footer-starts-->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-text">
+				<p>© 2020 GamesLife. All Rights Reserved. </p>
+			</div>
+		</div>
+	</div>
+	<!--footer-end-->
+
+
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.js' %}"></script>
+{% block scripts %}{% endblock %}
+{% block css %}{% endblock %}
+</body>
+</html>
