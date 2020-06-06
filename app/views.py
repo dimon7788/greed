@@ -15,6 +15,7 @@ from django.views.generic import ListView, DetailView
 from .models import Blog
 from .models import Comment
 from .forms import CommentForm
+from .forms import BlogForm
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -84,16 +85,39 @@ def about(request):
         }
     )
 
+def video(request):
+    """Renders the about page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/video.html',
+        {
+            'title':'Video',
+            'message':'Video',
+            'year':datetime.now().year,
+        }
+    )
+
 
 def gallery(request):
     """Renders the about page."""
+    if request.method == "POST":
+        blogform = BlogForm(request.FILES)
+        if blogform.is_valid():
+            blog_f = blogform.save(commit=False)
+            blog_f.posted = datetime.niw()
+            blog_f.save()
+            return redirect('page')
+    else:
+        blogform = BlogForm()
+
     assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/gallery.html',
         {
-            'title':'Gallery',
-            'message':'Gallery page.',
+            'title':'Создать статью',
+            'blogform':blogform,
             'year':datetime.now().year,
         }
     )

@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^$', app.views.home, name='home'),
     url(r'^contact$', app.views.contact, name='contact'),
     url(r'^about$', app.views.about, name='about'),
+    url(r'^video$', app.views.video, name='video'),
     url(r'^page$', app.views.page, name='page'),     
     url(r'^gallery$', app.views.gallery, name='gallery'),    
     url(r'^(?P<parametr>\d+)/$', app.views.blogpost, name='blogpost'),
